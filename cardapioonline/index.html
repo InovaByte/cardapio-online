@@ -1,347 +1,661 @@
-<!doctype html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Menu do Restaurante</title>
-        <link href="assets/css/styles.css" type="text/css" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=New+Amsterdam&display=swap"
-            rel="stylesheet" />
-        <style>
-            /* Adicionando animações para os modais */
-            .overlay {
-                display: none; /* Inicialmente escondido */
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                justify-content: center;
-                align-items: center;
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-            }
-            .overlay.show {
-                display: flex;
-                opacity: 1;
-            }
-            .overlay-content {
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                max-width: 600px;
-                width: 100%;
-                animation: fadeIn 0.3s ease-in-out;
-            }
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-        </style>
-    </head>
-    <body>
-        <header class="header">
-            <div class="topo">
-                <h1 class="logo">Nome do Restaurante</h1>
-                <a href="#" class="cart">
-                    <img src="assets/images/cart.png" alt="carrinho" />
-                    <span id="cart-indicator" class="cart-indicator">0</span>
-                </a>
-            </div>
-        </header>
-        <main>
-            <div class="container">
-                <ul class="category-list">
-                    <!-- Botões das Categorias -->
-                    <li>
-                        <button id="bebidas-btn" class="category-toggle" data-target="bebidas-content">Bebidas</button>
-                    </li>
-                    <li>
-                        <button id="pizzas-btn" class="category-toggle" data-target="pizzas-content">Pizzas</button>
-                    </li>
-                    <li>
-                        <button id="hamburguer-btn" class="category-toggle" data-target="hamburguer-content">
-                            Hamburguer
-                        </button>
-                    </li>
-                    <li>
-                        <button id="yakisoba-btn" class="category-toggle" data-target="yakisoba-content">
-                            Yakisobas
-                        </button>
-                    </li>
-                    <li>
-                        <button id="cigarros-btn" class="category-toggle" data-target="cigarros-content">
-                            Cigarros
-                        </button>
-                    </li>
-                    <li><button id="balas-btn" class="category-toggle" data-target="balas-content">Balas</button></li>
-                    <li>
-                        <button id="tortas-btn" class="category-toggle" data-target="tortas-content">Tortas</button>
-                    </li>
-                    <li><button id="sushi-btn" class="category-toggle" data-target="sushi-content">Sushi</button></li>
-                    <li>
-                        <button id="sobremesas-btn" class="category-toggle" data-target="sobremesas-content">
-                            Sobremesas
-                        </button>
-                    </li>
-                </ul>
-            </div>
+<html><head><base href="https://crypto-signals.example.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CryptoSignals Pro</title>
 
-            <!-- Conteúdo das Categorias -->
-            <div id="bebidas-content" class="category-content">
-                <h3>Bebidas</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/cocacola.jpg" alt="Coca-cola" />
-                        Coca-Cola
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Coca-Cola" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/pepsi.jpg" alt="Pepsi" />
-                        Pepsi
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Pepsi" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/agua.jpg" alt="Água Mineral" />
-                        Água Mineral
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Água Mineral" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="pizzas-content" class="category-content">
-                <h3>Pizzas</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/pizzam.jfif" alt="Margherita" />
-                        Margherita
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Margherita" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/pizzac.jfif" alt="Calabresa" />
-                        Calabresa
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Calabresa" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/pizzap.jpg" alt="Portuguesa" />
-                        Portuguesa
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Portuguesa" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="hamburguer-content" class="category-content">
-                <h3>Hamburguer</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/Cheeseburger.jfif" alt="Cheeseburger" />
-                        Cheeseburger
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Cheeseburger" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/BaconBurger.jfif" alt="Bacon Burger" />
-                        Bacon Burger
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Bacon Burger" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/VeggieBurger.jfif" alt="Veggie Burger" />
-                        Veggie Burger
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Veggie Burger" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="yakisoba-content" class="category-content">
-                <h3>Yakisobas</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/YakisobaFrango.jfif" alt="Yakisoba de Frango" />
-                        Yakisoba de Frango
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Yakisoba de Frango" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/YakisobaCarne.jpg" alt="Yakisoba de Carne" />
-                        Yakisoba de Carne
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Yakisoba de Carne" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/Yakisobavegetariano.jfif" alt="Yakisoba Vegetariano" />
-                        Yakisoba Vegetariano
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Yakisoba Vegetariano" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="cigarros-content" class="category-content">
-                <h3>Cigarros</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/cigarrom.jfif" alt="Marlboro" />
-                        Marlboro
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Marlboro" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/cigarroc.jfif" alt="Camel" />
-                        Camel
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Camel" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/cigarrot.jfif" alt="Lucky Strike" />
-                        Lucky Strike
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Lucky Strike" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="balas-content" class="category-content">
-                <h3>Balas</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/balab.jpg" alt="Balas de Morango" />
-                        Balas de Morango
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Balas de Morango" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/balal.jpg" alt="Balas de Limão" />
-                        Balas de Limão
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Balas de Limão" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/balac.jpg" alt="Balas de Chocolate" />
-                        Balas de Chocolate
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Balas de Chocolate" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="tortas-content" class="category-content">
-                <h3>Tortas</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/torta1.jpg" alt="Torta de Limão" />
-                        Torta de Limão
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Torta de Limão" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/torta2.jpg" alt="Torta de Morango" />
-                        Torta de Morango
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Torta de Morango" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/torta3.jpg" alt="Torta de Chocolate" />
-                        Torta de Chocolate
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Torta de Chocolate" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="sushi-content" class="category-content">
-                <h3>Sushi</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/sushi1.jfif" alt="Sushi de Salmão" />
-                        Sushi de Salmão
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Sushi de Salmão" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/sushi2.jfif" alt="Sushi de Atum" />
-                        Sushi de Atum
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Sushi de Atum" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/sushi3.jfif" alt="Sushi Vegetariano" />
-                        Sushi Vegetariano
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Sushi Vegetariano" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="sobremesas-content" class="category-content">
-                <h3>Sobremesas</h3>
-                <ul class="product-list">
-                    <li class="menu-item">
-                        <img src="assets/images/sobremesa1.jpg" alt="Cheesecake" />
-                        Cheesecake
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Cheesecake" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/sobremesa2.jpg" alt="Mousse de Chocolate" />
-                        Mousse de Chocolate
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Mousse de Chocolate" data-price="2.99">+</button>
-                    </li>
-                    <li class="menu-item">
-                        <img src="assets/images/sobremesa3.jpg" alt="Pudim" />
-                        Pudim
-                        <strong>2.99</strong>
-                        <button class="add-button" data-name="Pudim" data-price="2.99">+</button>
-                    </li>
-                </ul>
-            </div>
+<!-- Bibliotecas externas -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-            <!-- Overlay Principal -->
-            <div id="overlay" class="overlay" aria-labelledby="overlay-title" aria-describedby="overlay-description">
-                <div id="overlay-content" class="overlay-content" role="dialog" aria-labelledby="overlay-title">
-                    <h2 id="overlay-title">Conteúdo da Categoria</h2>
-                    <!-- O conteúdo das categorias será carregado dinamicamente aqui -->
-                    <button class="back-to-menu">Fechar</button>
-                </div>
-            </div>
+<style>
+:root {
+    /* Light theme */
+    --primary-color: #2962ff;
+    --secondary-color: #0039cb;
+    --success-color: #00c853;
+    --danger-color: #d50000;
+    --warning-color: #ffd600;
+    --background-color: #f5f5f5;
+    --card-color: #ffffff;
+    --text-color: #333333;
+}
 
-            <!-- Overlay de Detalhes do Produto -->
-            <div
-                id="product-details-overlay"
-                class="overlay"
-                aria-labelledby="product-details-title"
-                aria-describedby="product-details-description">
-                <div
-                    id="product-details-content"
-                    class="overlay-content"
-                    role="dialog"
-                    aria-labelledby="product-details-title">
-                    <div class="product-details">
-                        <img id="product-image" src="" alt="Imagem do Produto" class="product-image" />
-                        <p>Imagens ilustrativas</p>
-                        <label for="product-name">Descrição:</label>
-                        <span id="product-name"></span>
-                        <label for="product-quantity">Quantidade:</label>
-                        <input type="number" id="product-quantity" name="product-quantity" min="1" value="1" required />
-                        <label for="product-observation">Observação:</label>
-                        <textarea
-                            id="product-observation"
-                            name="product-observation"
-                            rows="4"
-                            placeholder="Digite suas observações aqui..."></textarea>
-                        <button id="adicionar-details">Adicionar</button>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <div class="container">
-                <p><strong>Copyright:</strong>2024 Restaurante Exemplo - <strong>JeanVieira</strong></p>
-            </div>
-        </footer>
-        <script src="assets/js/script.js"></script>
-    </body>
-</html>
+/* Add new dark theme */
+[data-theme="dark"] {
+    --primary-color: #3d5afe;
+    --secondary-color: #304ffe;
+    --background-color: #121212;
+    --card-color: #1e1e1e;
+    --text-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding-bottom: 70px;
+}
+
+.header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.connection-status {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.2);
+}
+
+.controls {
+    padding: 1rem;
+    background: var(--card-color);
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    font-size: 16px;
+}
+
+.analyze-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.chart-container {
+    background: var(--card-color);
+    margin: 10px;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    height: 300px;
+}
+
+.signal-card {
+    background: var(--card-color);
+    margin: 10px;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.signal-strength {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.error-message {
+    background: var(--danger-color);
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    display: none;
+}
+
+/* Estados dos sinais */
+.buy { background: var(--success-color); color: white; }
+.sell { background: var(--danger-color); color: white; }
+.neutral { background: var(--warning-color); color: black; }
+
+.indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.indicator {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>CryptoSignals Pro</h1>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <button id="theme-toggle" class="theme-toggle">🌓</button>
+        <div id="connection-status" class="connection-status">Conectando...</div>
+    </div>
+</div>
+
+<div id="error-message" class="error-message"></div>
+
+<div class="controls">
+    <select id="pair-select">
+        <option value="">Carregando pares...</option>
+    </select>
+
+    <select id="timeframe-select">
+        <option value="15m">15 minutos</option>
+        <option value="1h">1 hora</option>
+        <option value="4h">4 horas</option>
+        <option value="1d">1 dia</option>
+    </select>
+
+    <button class="analyze-btn" id="analyze-btn">
+        Analisar Mercado
+    </button>
+</div>
+
+<div class="chart-container">
+    <canvas id="priceChart"></canvas>
+</div>
+
+<div class="signal-card">
+    <h2>Sinal Atual</h2>
+    <div id="signal-strength" class="signal-strength neutral">
+        AGUARDANDO ANÁLISE
+    </div>
+    
+    <div class="indicators-grid">
+        <div class="indicator">
+            <strong>RSI</strong>
+            <div id="rsi-value">-</div>
+        </div>
+        <div class="indicator">
+            <strong>Tendência</strong>
+            <div id="trend-value">-</div>
+        </div>
+        <div class="indicator">
+            <strong>EMA Cross</strong>
+            <div id="ema-value">-</div>
+        </div>
+        <div class="indicator">
+            <strong>Volume 24h</strong>
+            <div id="volume-value">-</div>
+        </div>
+    </div>
+</div>
+
+<div class="loading-overlay" id="loading-overlay">
+    <div class="loading-spinner"></div>
+</div>
+
+<script>
+// Configurações e estado global
+const config = {
+    API_KEY: 'YOUR_API_KEY', // Substituir pela sua chave API
+    API_SECRET: 'YOUR_API_SECRET', // Substituir pelo seu secret
+    WS_ENDPOINT: 'wss://stream.binance.com:9443/ws',
+    REST_ENDPOINT: 'https://api.binance.com',
+    MAX_REQUESTS_PER_MINUTE: 1200,
+    REQUEST_WINDOW_MS: 60000,
+};
+
+class ApiRateLimiter {
+    constructor(maxRequests, windowMs) {
+        this.maxRequests = maxRequests;
+        this.windowMs = windowMs;
+        this.requests = [];
+    }
+
+    async throttle() {
+        const now = Date.now();
+        this.requests = this.requests.filter(time => now - time < this.windowMs);
+        
+        if (this.requests.length >= this.maxRequests) {
+            const oldestRequest = this.requests[0];
+            const waitTime = this.windowMs - (now - oldestRequest);
+            await new Promise(resolve => setTimeout(resolve, waitTime));
+        }
+        
+        this.requests.push(now);
+    }
+}
+
+// Add new utility class for API retries
+class ApiClient {
+    constructor(maxRetries = 3, retryDelay = 1000) {
+        this.maxRetries = maxRetries;
+        this.retryDelay = retryDelay;
+    }
+
+    async request(fn, ...args) {
+        let lastError;
+        for (let attempt = 0; attempt < this.maxRetries; attempt++) {
+            try {
+                await rateLimiter.throttle();
+                return await fn(...args);
+            } catch (error) {
+                lastError = error;
+                await new Promise(resolve => setTimeout(resolve, this.retryDelay * Math.pow(2, attempt)));
+            }
+        }
+        throw lastError;
+    }
+}
+
+class WebSocketManager {
+    constructor() {
+        this.ws = null;
+        this.reconnectAttempts = 0;
+        this.maxReconnectAttempts = 5;
+    }
+
+    connect(symbol) {
+        if (this.ws) {
+            this.ws.close();
+        }
+
+        this.ws = new WebSocket(`${config.WS_ENDPOINT}/${symbol.toLowerCase()}@ticker`);
+        
+        this.ws.onopen = () => {
+            this.reconnectAttempts = 0;
+            updateConnectionStatus('Conectado');
+        };
+
+        this.ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            updateRealTimePrice(data);
+        };
+
+        this.ws.onclose = () => {
+            updateConnectionStatus('Desconectado');
+            this.reconnect(symbol);
+        };
+
+        this.ws.onerror = (error) => {
+            console.error('WebSocket error:', error);
+            showError('Erro na conexão WebSocket');
+        };
+    }
+
+    reconnect(symbol) {
+        if (this.reconnectAttempts < this.maxReconnectAttempts) {
+            this.reconnectAttempts++;
+            setTimeout(() => this.connect(symbol), 5000);
+        } else {
+            showError('Não foi possível reconectar ao servidor');
+        }
+    }
+}
+
+// Instâncias globais
+const rateLimiter = new ApiRateLimiter(config.MAX_REQUESTS_PER_MINUTE, config.REQUEST_WINDOW_MS);
+const wsManager = new WebSocketManager();
+let priceChart = null;
+
+function showLoading(show = true) {
+    document.getElementById('loading-overlay').style.display = show ? 'flex' : 'none';
+}
+
+function showError(message) {
+    const errorElement = document.getElementById('error-message');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+    setTimeout(() => {
+        errorElement.style.display = 'none';
+    }, 5000);
+}
+
+function updateConnectionStatus(status) {
+    document.getElementById('connection-status').textContent = status;
+}
+
+// Funções de análise técnica
+function calculateRSI(prices, periods = 14) {
+    let gains = 0;
+    let losses = 0;
+
+    for (let i = 1; i < periods + 1; i++) {
+        const difference = prices[i] - prices[i - 1];
+        if (difference >= 0) {
+            gains += difference;
+        } else {
+            losses -= difference;
+        }
+    }
+
+    const avgGain = gains / periods;
+    const avgLoss = losses / periods;
+    const rs = avgLoss === 0 ? 100 : avgGain / avgLoss;
+    return 100 - (100 / (1 + rs));
+}
+
+function calculateEMA(prices, periods) {
+    const multiplier = 2 / (periods + 1);
+    let ema = prices.slice(0, periods).reduce((a, b) => a + b) / periods;
+
+    for (let i = periods; i < prices.length; i++) {
+        ema = (prices[i] - ema) * multiplier + ema;
+    }
+
+    return ema;
+}
+
+async function fetchMarketData(symbol, interval) {
+    try {
+        const response = await new ApiClient().request(
+            async () => await axios.get(`${config.REST_ENDPOINT}/api/v3/klines`, {
+                params: {
+                    symbol: symbol,
+                    interval: interval,
+                    limit: 100
+                }
+            })
+        );
+        return response.data;
+    } catch (error) {
+        throw new Error(`Erro ao buscar dados do mercado: ${error.message}`);
+    }
+}
+
+async function fetchTradingPairs() {
+    try {
+        const response = await new ApiClient().request(
+            async () => await axios.get(`${config.REST_ENDPOINT}/api/v3/exchangeInfo`)
+        );
+        const pairs = response.data.symbols
+            .filter(symbol => symbol.status === 'TRADING' && symbol.quoteAsset === 'USDT')
+            .map(symbol => ({
+                symbol: symbol.symbol,
+                baseAsset: symbol.baseAsset,
+                quoteAsset: symbol.quoteAsset
+            }))
+            .sort((a, b) => a.baseAsset.localeCompare(b.baseAsset));
+        
+        return pairs;
+    } catch (error) {
+        throw new Error(`Erro ao buscar pares de trading: ${error.message}`);
+    }
+}
+
+async function populatePairSelect() {
+    const pairSelect = document.getElementById('pair-select');
+    pairSelect.innerHTML = '<option value="">Carregando pares...</option>';
+    
+    try {
+        const pairs = await fetchTradingPairs();
+        pairSelect.innerHTML = pairs.map(pair => 
+            `<option value="${pair.symbol}">${pair.baseAsset}/${pair.quoteAsset}</option>`
+        ).join('');
+    } catch (error) {
+        showError(error.message);
+        pairSelect.innerHTML = '<option value="">Erro ao carregar pares</option>';
+    }
+}
+
+function initializeChart() {
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    
+    if (priceChart) {
+        priceChart.destroy();
+    }
+
+    priceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Preço',
+                data: [],
+                borderColor: '#2962ff',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            },
+            plugins: {
+                legend: {
+                    display: true
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+}
+
+function updateChart(prices, dates) {
+    if (priceChart) {
+        priceChart.data.labels = dates;
+        priceChart.data.datasets[0].data = prices;
+        priceChart.update();
+    }
+}
+
+async function analyzeMarket() {
+    showLoading(true);
+    const symbol = document.getElementById('pair-select').value;
+    const interval = document.getElementById('timeframe-select').value;
+
+    try {
+        const klines = await fetchMarketData(symbol, interval);
+        const prices = klines.map(k => parseFloat(k[4]));
+        const dates = klines.map(k => new Date(k[0]).toLocaleDateString());
+
+        // Calcular indicadores
+        const rsi = calculateRSI(prices);
+        const ema9 = calculateEMA(prices, 9);
+        const ema21 = calculateEMA(prices, 21);
+
+        // Atualizar gráfico
+        updateChart(prices, dates);
+
+        // Calcular força do sinal
+        const signalStrength = calculateSignalStrength(rsi, ema9, ema21, prices);
+
+        // Atualizar UI
+        updateSignalUI(signalStrength, rsi);
+
+        // Iniciar WebSocket para atualizações em tempo real
+        wsManager.connect(symbol);
+
+        // Verificar se precisa enviar notificação
+        checkAndNotify(signalStrength);
+
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        showLoading(false);
+    }
+}
+
+function calculateSignalStrength(rsi, ema9, ema21, prices) {
+    let strength = 0;
+
+    // RSI Analysis
+    if (rsi < 30) strength += 25;
+    if (rsi > 70) strength -= 25;
+
+    // EMA Cross Analysis
+    if (ema9 > ema21) strength += 15;
+    if (ema9 < ema21) strength -= 15;
+
+    // Tendência de preço
+    const priceChange = ((prices[prices.length - 1] - prices[0]) / prices[0]) * 100;
+    if (priceChange > 0) strength += 10;
+    if (priceChange < 0) strength -= 10;
+
+    return strength;
+}
+
+function updateSignalUI(strength, rsi) {
+    const signalElement = document.getElementById('signal-strength');
+    const rsiElement = document.getElementById('rsi-value');
+    const trendElement = document.getElementById('trend-value');
+    
+    rsiElement.textContent = rsi.toFixed(2);
+
+    let signalText = '';
+    let signalClass = '';
+    
+    if (strength >= 30) {
+        signalText = 'COMPRA FORTE';
+        signalClass = 'buy';
+    } else if (strength <= -30) {
+        signalText = 'VENDA FORTE';
+        signalClass = 'sell';
+    } else {
+        signalText = 'NEUTRO';
+        signalClass = 'neutral';
+    }
+
+    signalElement.className = 'signal-strength ' + signalClass;
+    signalElement.textContent = signalText;
+    
+    trendElement.textContent = strength > 0 ? '↗️ Alta' : strength < 0 ? '↘️ Baixa' : '↔️ Lateral';
+}
+
+function updateRealTimePrice(data) {
+    const price = parseFloat(data.c).toFixed(2);
+    document.getElementById('volume-value').textContent = 
+        `$${(parseFloat(data.v) * parseFloat(data.c)).toLocaleString()}`;
+}
+
+async function checkAndNotify(signalStrength) {
+    if ('Notification' in window) {
+        if (Notification.permission === 'granted') {
+            if (Math.abs(signalStrength) >= 40) {
+                const action = signalStrength > 0 ? 'COMPRA' : 'VENDA';
+                new Notification(`Sinal Forte de ${action}`, {
+                    body: `Foi detectado um sinal forte de ${action.toLowerCase()} com força de ${Math.abs(signalStrength)}%`,
+                    icon: '/icons/icon-192.png'
+                });
+            }
+        } else if (Notification.permission !== 'denied') {
+            await Notification.requestPermission();
+        }
+    }
+}
+
+// Event Listeners
+document.getElementById('analyze-btn').addEventListener('click', analyzeMarket);
+
+// Theme toggle functionality
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', async () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    
+    initializeChart();
+    await populatePairSelect();
+    if (document.getElementById('pair-select').value) {
+        analyzeMarket();
+    }
+});
+
+// cleanup for WebSocket
+window.addEventListener('beforeunload', () => {
+    if (wsManager.ws) {
+        wsManager.ws.close();
+    }
+});
+
+// Service Worker para PWA
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(registration => console.log('ServiceWorker registered'))
+        .catch(error => console.error('ServiceWorker error:', error));
+}
+</script>
+
+</body></html>
